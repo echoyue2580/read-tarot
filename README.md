@@ -30,6 +30,43 @@ cp -r read-tarot/.tron/skills/tarot <你的工作区路径>/.tron/skills/
 | 选牌建议 | "新手买什么塔罗牌？" |
 | 知识问答 | "凯尔特十字每个位置代表什么？" |
 
+## 跨平台复用
+
+除了悟东，你也可以把这个 skill 用到其他 AI 平台。核心文件 `SKILL.md` 天然包含两部分：
+
+| 内容 | 说明 |
+|------|------|
+| 系统提示词（占卜师角色+工作流） | 第四章：角色定义、占卜流程、牌阵、解读风格、输出格式 |
+| 知识库（78 张牌义） | 第一~三章 + 第八章：叙事型牌义 + 关键词速查表 |
+
+使用方法：
+
+```
+ChatGPT (GPTs)
+  1. 创建自定义 GPT
+  2. SKILL.md 全文粘贴到 Instructions
+  3. 或者：把第四章（占卜工作流）放 Instructions，第一~三章+第八章（牌义）上传到 Knowledge
+
+Claude Projects
+  1. 创建 Project
+  2. SKILL.md 全文粘贴到 Project Instructions
+  3. 或者：把占卜工作流放 Instructions，牌义部分上传到 Project Knowledge
+
+Coze / 扣子
+  1. 创建 Bot
+  2. SKILL.md 全文粘贴到「人设与回复逻辑」
+  3. 或者：占卜工作流→人设，牌义→知识库模块
+
+Dify
+  1. 创建应用
+  2. SKILL.md 全文粘贴到 System Prompt
+  3. 或者：占卜工作流→System Prompt，牌义→创建 Dataset 并关联
+```
+
+> **通用原理**：任何支持自定义 System Prompt + Knowledge/RAG 的 AI 平台都能用。系统提示词已包含完整牌阵说明，不需要额外文件。牌义部分建议作为独立知识库上传，避免提示词过长。
+
+---
+
 ## 包含内容
 
 | 模块 | 内容 |
