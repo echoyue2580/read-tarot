@@ -1,0 +1,5 @@
+# 私有凭证和配置 - 绝不提交
+.wudong/private/
+*.env
+.env.*
+credentials.json
